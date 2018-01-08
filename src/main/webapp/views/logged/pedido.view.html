@@ -1,0 +1,179 @@
+<h3>Pedido</h3>
+
+<!-- div row para pesquisa -->
+<!--<div class="row">-->
+
+            <div ng-hide="Pedido.inserting || Pedido.editing" class="component-holder ng-binding ng-scope" data-component="crn-datasource-filter-complex">
+              <fieldset>
+                <div data-component="crn-datasource-filter" id="crn-datasource-filter-numeropedido" class="col-md-6">
+                    <div class="form-group">
+                        <label for="textinput-filter" class="">{{"template.crud.search" | translate}} Numeropedido</label>
+                        <input type="text" ng-model="vars.search_numeropedido" mask="" mask-placeholder="" cronapp-filter="numeropedido" cronapp-filter-autopost="false" cronapp-filter-operator="" crn-datasource="Pedido" class="form-control" value="" placeholder="Numeropedido">
+                    </div>
+                </div>
+                <div data-component="crn-datasource-filter" id="crn-datasource-filter-horariodopedido" class="col-md-6">
+                    <div class="form-group">
+                        <label for="textinput-filter" class="">{{"template.crud.search" | translate}} Horariodopedido</label>
+                        <input type="datetime" ng-model="vars.search_horariodopedido" mask="DD/MM/YYYY HH:mm:ss" mask-placeholder="" cronapp-filter="horariodopedido" cronapp-filter-autopost="false" cronapp-filter-operator="" crn-datasource="Pedido" class="form-control" value="" placeholder="Horariodopedido">
+                    </div>
+                </div>
+              <div data-component="crn-button-filter" class="col-md-12" crn-datasource="Pedido">
+                <button class="btn component-holder btn-info" cronapp-filter="" data-component="crn-button-filter" type="submit" ng-click="" xattr-size="" xattr-fullsize="" xattr-theme="btn-info"><i class="glyphicon glyphicon-search"></i> <span>{{"template.crud.search" | translate}}</span></button><button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="Pedido.startInserting()" ng-hide="Pedido.inserting || Pedido.editing"><i class="fa fa-user"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
+              </div>
+              <br>
+              </fieldset>
+            </div>
+
+<div data-component="crn-button" id="crn-button-564202" class="">
+    
+</div>
+<!-- fim div row para pesquisa -->
+<!--</div>-->
+
+<datasource filter="" name="Pedido" entity="api/cronapi/crud/app.entity.Pedido" keys="id" rows-per-page="100" delete-message="Deseja remover?" class=""></datasource>
+<div class="component-holder" data-component="crn-grid" id="crn-grid-Pedido">
+    <div crn-datasource="Pedido" class="" ng-hide="Pedido.editing || Pedido.inserting">
+        <table class="table  table-bordered table-hover table-striped">
+            <thead>
+            <tr class="table-header">
+                <th class="">
+                    <div class="">Numeropedido</div>
+                </th>
+                <th class="">
+                    <div class="">Horariodopedido</div>
+                </th>
+                <th class="">
+                    <div class="">Cliente</div>
+                </th>
+                <th class="">
+                    <div class="">Cardapio</div>
+                </th>
+                <th class="">
+                    <div class="">{{"template.crud.actions" | translate}}</div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="table-content" ng-repeat="rowData in datasource.data">
+                <td class="">
+                    <div class="">
+                                {{rowData.numeropedido  }}
+                    </div>
+                </td>
+                <td class="">
+                    <div class="">
+                                {{rowData.horariodopedido | mask:'datetime'}}
+                    </div>
+                </td>
+                <td class="">
+                    <div class="">
+                            {{rowData.cliente.nome}}
+                    </div>
+                </td>
+                <td class="">
+                    <div class="">
+                            {{rowData.cardapio.nomeCardapio}}
+                    </div>
+                </td>
+                <td class="">
+                    <div class="">
+                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fa fa-edit"></i></button>
+                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="table-footer-controls">
+            <button class="btn btn-default btn-block btn-clicked" data-component="crn-button" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">{{"template.crud.load_more" | translate}}...</button>
+        </div>
+    </div>
+</div>
+<div data-component="crn-form" id="crn-form-form-Pedido">
+    <div class="form" ng-show="Pedido.editing || Pedido.inserting">
+        <form crn-datasource="Pedido" class="">
+            <div class="tool-bar" ng-hide="datasource.editing || datasource.inserting">
+                <button class="btn btn-primary" data-component="crn-button" ng-click="datasource.startInserting()"><i class="glyphicon glyphicon-plus-sign"></i></button>
+                <button class="btn btn-success" data-component="crn-button" ng-click="datasource.startEditing()"><i class="glyphicon glyphicon-edit"></i></button>
+                <button class="btn btn-primary" data-component="crn-button" ng-disabled="!datasource.hasPrevious()" ng-click="datasource.previous()"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                <button class="btn btn-primary" data-component="crn-button" ng-disabled="!datasource.hasNext()" ng-click="datasource.next()"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                <button class="btn btn-primary" data-component="crn-button" ng-click="datasource.remove()"><i class="glyphicon glyphicon-trash"></i></button>
+            </div>
+            <div class="active-bar" ng-hide="!datasource.editing &amp;&amp; !datasource.inserting">
+                <button class="btn btn-success" data-component="crn-button" ng-click="datasource.post()"><i class="glyphicon glyphicon-ok"></i></button>
+                <button class="btn btn-danger" data-component="crn-button" ng-click="datasource.cancel()"><i class="glyphicon glyphicon-remove"></i></button>
+            </div>
+            <br>
+            <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
+
+                <div data-component="crn-textinput" id="crn-textinput-numeropedido" class="col-md-6">
+                    <div class="form-group">
+                        <label for="textinput-numeropedido" class="">Numeropedido</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="text" ng-model="Pedido.active.numeropedido" class="form-control" id="textinput-numeropedido" placeholder="Numeropedido" mask="" mask-placeholder="" ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
+                <div data-component="crn-textinput" id="crn-textinput-horariodopedido" class="col-md-6">
+                    <div class="form-group">
+                        <label for="textinput-horariodopedido" class="">Horariodopedido</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <input type="datetime" ng-model="Pedido.active.horariodopedido" class="form-control" id="textinput-horariodopedido" placeholder="Horariodopedido" mask="DD/MM/YYYY HH:mm:ss" mask-placeholder="" ng-required="false">
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+                    <datasource name="Cliente" entity="api/cronapi/crud/app.entity.Cliente" keys="id" class="" dependent-by="{{Pedido}}"></datasource>
+
+                <div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-cliente" class="col-md-6">
+                    <div class="form-group">
+                        <label for="combobox-dynamic-cliente" class="">Cliente</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <ui-select ng-model="Pedido.active.cliente" crn-datasource="Cliente" class="crn-select" id="combobox-dynamic-cliente" ng-required="false" theme="bootstrap">
+                                    <ui-select-match class="" placeholder="Select...">
+                                        {{$select.selected.nome}}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
+                                        <div class="" data-container="true">
+                                            {{rowData.nome}}
+                                        </div>
+                                    </ui-select-choices>
+                                </ui-select>
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+                    <datasource name="Cardapio" entity="api/cronapi/crud/app.entity.Cardapio" keys="id" class="" dependent-by="{{Pedido}}"></datasource>
+
+                <div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-cardapio" class="col-md-6">
+                    <div class="form-group">
+                        <label for="combobox-dynamic-cardapio" class="">Cardapio</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <ui-select ng-model="Pedido.active.cardapio" crn-datasource="Cardapio" class="crn-select" id="combobox-dynamic-cardapio" ng-required="false" theme="bootstrap">
+                                    <ui-select-match class="" placeholder="Select...">
+                                        {{$select.selected.nomeCardapio}}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
+                                        <div class="" data-container="true">
+                                            {{rowData.nomeCardapio}}
+                                        </div>
+                                    </ui-select-choices>
+                                </ui-select>
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+                <!-- NtoN  -->
+                <!-- NtoN  end-->
+            </fieldset>
+        </form>
+        <form>
+            <fieldset>
+                <!-- OneToN -->
+                <!-- OneToOne  end -->
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+
+<!-- OneToOne modal -->
+<!-- OneToOne modal end-->
