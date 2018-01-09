@@ -7,14 +7,14 @@
               <fieldset>
                 <div data-component="crn-datasource-filter" id="crn-datasource-filter-numeropedido" class="col-md-6">
                     <div class="form-group">
-                        <label for="textinput-filter" class="">{{"template.crud.search" | translate}} Numeropedido</label>
-                        <input type="text" ng-model="vars.search_numeropedido" mask="" mask-placeholder="" cronapp-filter="numeropedido" cronapp-filter-autopost="false" cronapp-filter-operator="" crn-datasource="Pedido" class="form-control" value="" placeholder="Numeropedido">
+                        <label for="textinput-filter" class="">{{"template.crud.search" | translate}} Numero do pedido</label>
+                        <input type="text" ng-model="vars.search_numeropedido" mask="" mask-placeholder="" cronapp-filter="numeropedido" cronapp-filter-autopost="false" cronapp-filter-operator="" crn-datasource="Pedido" class="form-control" value="" placeholder="Numero do pedido">
                     </div>
                 </div>
                 <div data-component="crn-datasource-filter" id="crn-datasource-filter-horariodopedido" class="col-md-6">
                     <div class="form-group">
-                        <label for="textinput-filter" class="">{{"template.crud.search" | translate}} Horariodopedido</label>
-                        <input type="datetime" ng-model="vars.search_horariodopedido" mask="DD/MM/YYYY HH:mm:ss" mask-placeholder="" cronapp-filter="horariodopedido" cronapp-filter-autopost="false" cronapp-filter-operator="" crn-datasource="Pedido" class="form-control" value="" placeholder="Horariodopedido">
+                        <label for="textinput-filter" class="">{{"template.crud.search" | translate}} Horario do pedido</label>
+                        <input type="datetime" ng-model="vars.search_horariodopedido" mask="DD/MM/YYYY HH:mm:ss" mask-placeholder="" cronapp-filter="horariodopedido" cronapp-filter-autopost="false" cronapp-filter-operator="" crn-datasource="Pedido" class="form-control" value="" placeholder="Horário do pedido">
                     </div>
                 </div>
               <div data-component="crn-button-filter" class="col-md-12" crn-datasource="Pedido">
@@ -36,11 +36,11 @@
         <table class="table  table-bordered table-hover table-striped">
             <thead>
             <tr class="table-header">
-                <th class="">
-                    <div class="">Numeropedido</div>
+                <th class="active">
+                    <div class="">Numero do pedido</div>
                 </th>
                 <th class="">
-                    <div class="">Horariodopedido</div>
+                    <div class="">Horario do pedido</div>
                 </th>
                 <th class="">
                     <div class="">Cliente</div>
@@ -55,7 +55,7 @@
             </thead>
             <tbody>
             <tr class="table-content" ng-repeat="rowData in datasource.data">
-                <td class="">
+                <td class="active">
                     <div class="">
                                 {{rowData.numeropedido  }}
                     </div>
@@ -108,18 +108,18 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-numeropedido" class="col-md-6">
                     <div class="form-group">
-                        <label for="textinput-numeropedido" class="">Numeropedido</label>
+                        <label for="textinput-numeropedido" class="">Numero do pedido</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input type="text" ng-model="Pedido.active.numeropedido" class="form-control" id="textinput-numeropedido" placeholder="Numeropedido" mask="" mask-placeholder="" ng-required="false">
+                                <input type="text" ng-model="Pedido.active.numeropedido" class="form-control" id="textinput-numeropedido" placeholder="Numero do pedido" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>
 
                 <div data-component="crn-textinput" id="crn-textinput-horariodopedido" class="col-md-6">
                     <div class="form-group">
-                        <label for="textinput-horariodopedido" class="">Horariodopedido</label>
+                        <label for="textinput-horariodopedido" class="">Horario do pedido</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input type="datetime" ng-model="Pedido.active.horariodopedido" class="form-control" id="textinput-horariodopedido" placeholder="Horariodopedido" mask="DD/MM/YYYY HH:mm:ss" mask-placeholder="" ng-required="false">
+                                <input type="datetime" ng-model="Pedido.active.horariodopedido" class="form-control" id="textinput-horariodopedido" placeholder="Horario do pedido" mask="DD/MM/YYYY HH:mm:ss" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>
